@@ -15,7 +15,8 @@ createWindow = () => {
         }
     });
     
-    appWin.loadURL(`file://${__dirname}/dist/index.html`);
+  //  appWin.loadURL(`file://${__dirname}/dist/index.html`);
+  appWin.loadURL('http://localhost:4200')
 
     appWin.setMenu(null);
 
