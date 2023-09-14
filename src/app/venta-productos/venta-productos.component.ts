@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class VentaProductosComponent {
 
+  public enviarMensaje(){
+  
+    (window as any).electronAPI.setTitle('Título de la ventana');
+    console.log("xd")
+  }
+
 }

@@ -1,5 +1,6 @@
 
-const { app, BrowserWindow } = require("electron");
+const { app, BrowserWindow,ipcMain } = require("electron");
+const path = require("path");
 
 let appWin;
 
@@ -10,10 +11,14 @@ createWindow = () => {
         title: "Angular and Electron",
         resizable: false,
         webPreferences: {
-            contextIsolation: false,
-            nodeIntegration: true
+            preload: path.join(__dirname, 'preload.js')
         }
+       
+        
     });
+    ipcMain.on('set-title', (event, title) => {
+        console.log(title)
+      })
     
   //  appWin.loadURL(`file://${__dirname}/dist/index.html`);
   appWin.loadURL('http://localhost:4200')
