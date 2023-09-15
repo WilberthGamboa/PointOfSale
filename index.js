@@ -9,9 +9,11 @@ createWindow = () => {
         width: 800,
         height: 600,
         title: "Angular and Electron",
-        resizable: false,
+        resizable: true,
         webPreferences: {
-            preload: path.join(__dirname, 'preload.js')
+            preload: path.join(__dirname, 'preload.js'),
+            webSecurity:false,
+            allowRunningInsecureContent:true
         }
        
         

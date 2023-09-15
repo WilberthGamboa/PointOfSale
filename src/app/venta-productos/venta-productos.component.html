@@ -1,3 +1,30 @@
-<p>wtf</p>
 
-<button (click)="enviarMensaje()">CLick enviar mensaje</button>
+<nav class="d-flex justify-content-around bg-dark">
+    <button class="btn btn-success">
+        Finalizar Venta
+    </button>
+
+    <button class="btn btn-warning">
+        Reiniciar Venta
+    </button>
+    <button class="btn btn-danger">
+        Corte
+    </button>
+</nav>
+<div>
+    <input type="search"   #ref >
+    <button class="btn btn-primary" (click)="enviarMensaje(ref.value)"
+    
+  
+    >CLick enviar mensaje</button>
+</div>
+
+
+<div>
+    <ul>
+        <li></li>
+    </ul>
+
+
+</div>
+
