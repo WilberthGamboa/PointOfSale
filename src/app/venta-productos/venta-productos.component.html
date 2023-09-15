@@ -7,7 +7,7 @@
             Finalizar Venta
         </button>
     
-        <button class="btn btn-warning">
+        <button class="btn btn-warning" (click)="reiniciarVenta()">
             Reiniciar Venta
         </button>
         <button class="btn btn-danger">
@@ -28,16 +28,26 @@
             <thead class="thead-dark">
               <tr>
                 <th scope="col">#</th>
+                <th scope="col">Barcode</th>
                 <th scope="col">Nombre</th>
                 <th scope="col">Precio</th>
+                <th scope="col">Categoria</th>
               
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let item of venta">
-                <th scope="row"> {{item.id}} </th>
+              <tr *ngFor="let item of venta
+              
+              let i = index;
+              
+              "
+              
+              >
+                <th scope="row"> {{i+1}} </th>
+                <td>{{item.barcode}}</td>
                 <td>{{item.nombre}}</td>
                 <td>{{item.precio}}</td>
+                <td>{{item.categoria}}</td>
               </tr>
             </tbody>
           </table>
