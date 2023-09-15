@@ -1,30 +1,50 @@
 
-<nav class="d-flex justify-content-around bg-dark">
-    <button class="btn btn-success">
-        Finalizar Venta
-    </button>
 
-    <button class="btn btn-warning">
-        Reiniciar Venta
-    </button>
-    <button class="btn btn-danger">
-        Corte
-    </button>
-</nav>
-<div>
-    <input type="search"   #ref >
-    <button class="btn btn-primary" (click)="enviarMensaje(ref.value)"
+<main class="container">
+
+    <nav class="d-flex justify-content-around bg-dark">
+        <button class="btn btn-success">
+            Finalizar Venta
+        </button>
     
-  
-    >CLick enviar mensaje</button>
-</div>
+        <button class="btn btn-warning">
+            Reiniciar Venta
+        </button>
+        <button class="btn btn-danger">
+            Corte
+        </button>
+    </nav>
+    <div>
+        <input type="search"   #ref >
+        <button class="btn btn-primary" (click)="enviarMensaje(ref.value)"
+        
+      
+        >CLick enviar mensaje</button>
+    </div>
+    
+    
+    <div>
+        <table class="table">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Precio</th>
+              
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of venta">
+                <th scope="row"> {{item.id}} </th>
+                <td>{{item.nombre}}</td>
+                <td>{{item.precio}}</td>
+              </tr>
+            </tbody>
+          </table>
+    
+    
+    </div>
+    
 
-
-<div>
-    <ul>
-        <li></li>
-    </ul>
-
-
-</div>
+</main>
 
