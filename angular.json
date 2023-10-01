@@ -28,7 +28,7 @@
               "src/styles.css"
             ],
             "scripts": [{
-              "input": "index.js",
+              "input": "electron/index.js",
               "inject": false
             }]
           },

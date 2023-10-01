@@ -1,16 +1,14 @@
 {
   "name": "punto-de-venta-electron",
   "version": "0.0.0",
-  "main": "index.js",
+  "main": "electron/index.js",
+
   "scripts": {
     "ng": "ng",
-   
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-  
     "electron": "wait-on http://localhost:4200 && electron .",
-   
     "start": "concurrently -k \"ng serve\" \"npm run electron\""
   },
   "private": true,
@@ -24,6 +22,8 @@
     "@angular/platform-browser-dynamic": "^16.2.0",
     "@angular/router": "^16.2.0",
     "rxjs": "~7.8.0",
+    "sequelize": "^6.33.0",
+    "sqlite3": "^5.1.6",
     "tslib": "^2.3.0",
     "zone.js": "~0.13.0"
   },

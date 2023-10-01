@@ -1,6 +1,7 @@
 
 const { app, BrowserWindow,ipcMain } = require("electron");
 const path = require("path");
+const { initDb } = require("./main/db/database");
 
 let appWin;
 
@@ -11,7 +12,7 @@ createWindow = () => {
         title: "Angular and Electron",
         resizable: true,
         webPreferences: {
-            preload: path.join(__dirname, 'preload.js'),
+            preload: path.join(__dirname,'preload', 'preload.js'),
             webSecurity:false,
             allowRunningInsecureContent:true
         }
@@ -23,7 +24,7 @@ createWindow = () => {
       })
     
   //  appWin.loadURL(`file://${__dirname}/dist/index.html`);
-  appWin.loadURL('http://localhost:4200')
+     appWin.loadURL('http://localhost:4200')
 
     appWin.setMenu(null);
 
@@ -32,6 +33,8 @@ createWindow = () => {
     appWin.on("closed", () => {
         appWin = null;
     });
+
+    initDb();
 }
 
 app.on("ready", createWindow);
