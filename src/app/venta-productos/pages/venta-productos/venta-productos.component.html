@@ -1,11 +1,33 @@
+<div class="row mt-4 container-fluid  ">
 
+   <div class="col">
+    <venta-productos-navbar>
+        
+    </venta-productos-navbar>
+   </div>
+
+</div>
+
+
+<div class="row mt-4 container-fluid" >
+
+    <div class="col-6">
+
+     <venta-productos-ventaTemporal [totalSell]="totalSell" (dineroIngresado)="getcambio($event)" [cambio]="cambio"></venta-productos-ventaTemporal>
+    </div>
+
+    <div class="col-6">
+
+        <venta-productos-searchbar (searchEvent)="getProduct($event)"></venta-productos-searchbar>
+        <venta-productos-productlist [products]="products" ></venta-productos-productlist>
+    </div>
+
+</div>
 
 <main class="container">
   
-<h1>hola</h1>
 
-<venta-productos-navbar></venta-productos-navbar>
-<venta-productos-searchbar></venta-productos-searchbar>
-<venta-productos-productlist></venta-productos-productlist>
+
+
 </main>
 

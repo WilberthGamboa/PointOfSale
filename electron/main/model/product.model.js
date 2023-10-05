@@ -1,7 +1,9 @@
-import { Sequelize } from "sequelize";
-import { sequelize } from "../db/database";
 
-export const Product = sequelize.define('product', {
+const Sequelize = require('sequelize');
+const { sequelize } = require('../db/database');
+
+
+const Product = sequelize.define('product', {
     productname: {
       type: Sequelize.STRING,
       allowNull: false
@@ -16,3 +18,4 @@ export const Product = sequelize.define('product', {
 
     }
   });
+module.exports = {Product}

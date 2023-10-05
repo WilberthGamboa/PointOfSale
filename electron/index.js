@@ -2,10 +2,12 @@
 const { app, BrowserWindow,ipcMain } = require("electron");
 const path = require("path");
 const { initDb } = require("./main/db/database");
-
+const { Product } = require("./main/model/product.model");
+const { ProductsService } = require("./main/products/products.service");
+const productService = new ProductsService();
 let appWin;
 
-createWindow = () => {
+createWindow = async () => {
     appWin = new BrowserWindow({
         width: 800,
         height: 600,
@@ -35,6 +37,16 @@ createWindow = () => {
     });
 
     initDb();
+    ipcMain.handle('getProductByCodeBar',productService.getProductByCodeBar)
+    /*
+   const producto = new  Product({
+    productname: 'sadfds',
+    barcode:'1',
+    price:120
+   })
+
+   await producto.save()
+    */
 }
 
 app.on("ready", createWindow);

@@ -4,13 +4,15 @@ import { VentaPageComponent } from './pages/venta-productos/venta-productos.comp
 import { NavBarComponent } from './components/navbar/navbar.component';
 import { SearchBarComponent } from './components/searchbar/searchbar.component';
 import { ProductListComponent } from './components/productslist/productlist.component';
+import { VentaTemporalComponent } from './components/ventaTemporal/ventaTemporal.component';
 
 @NgModule({
     declarations: [
         VentaPageComponent,
         NavBarComponent,
         SearchBarComponent,
-        ProductListComponent
+        ProductListComponent,
+        VentaTemporalComponent
     ],
     imports: [ CommonModule ],
     exports: [VentaPageComponent, NavBarComponent,SearchBarComponent,ProductListComponent],
