@@ -9,10 +9,7 @@ const dbPath = path.join(userDataPath, 'database.sqlite');
 const Sequelize = require('sequelize');
  const sequelize = new Sequelize({
   dialect: 'sqlite',
-  storage: dbPath,
-  define: {
-    timestamps: false, // This removes the `created_at` and `updated_at` columns
-  },
+  storage: dbPath
 });
 
  const initDb = () =>{

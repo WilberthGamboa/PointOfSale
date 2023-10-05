@@ -26,9 +26,20 @@ export class VentaPageComponent implements OnInit {
       
     }
     public getcambio(dineroIngresado:number){
+            const cambioTemporal = dineroIngresado-this.totalSell;
+            if (cambioTemporal>0) 
             this.cambio = dineroIngresado-this.totalSell;
+                
+            
+       
     }
+    public resetSale(){
+        //console.log("hola desde reset sale principal")
+        this.products = [];
+        this.totalSell=0;
+        this.cambio=0;
 
+    }
     private actualizarVentaActual(price:number){
         this.totalSell = this.totalSell + price;
     }

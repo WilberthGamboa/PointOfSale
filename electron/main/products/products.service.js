@@ -1,4 +1,5 @@
-const { Product } = require("../model/product.model")
+const { Product } = require("../model/product.model");
+const { VentaIndivudal } = require("../model/ventaIndividual");
 
 class ProductsService {
     constructor(){}
@@ -17,6 +18,13 @@ class ProductsService {
         console.log(error)
        }
         
+
+    }
+
+    saveVentaIndividual = async(e,data) =>{
+        const product = await this.getProductByCodeBar(data);
+        console.log(product);
+        //const saveVentaIndivual = new VentaIndivudal({})
 
     }
 }

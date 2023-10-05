@@ -12,10 +12,19 @@ export class VentaTemporalComponent implements OnInit {
     cambio:number = 0;
     @Output() 
     dineroIngresado = new EventEmitter<number>()
+    @Output() 
+    resetSaleEventEmitter = new EventEmitter<void>()
     ngOnInit(): void { }
 
     public dinero(dinero:string){
         if (!isNaN(Number(dinero)))        
         this.dineroIngresado.emit(Number(dinero));
+    }
+
+    public resetSale(){
+        console.log("Reset sale hijo")
+        this.resetSaleEventEmitter.emit();
+
+     
     }
 }

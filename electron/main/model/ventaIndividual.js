@@ -1,20 +1,11 @@
 
 const Sequelize = require('sequelize');
 const { sequelize } = require('../db/database');
+const { Product } = require('./product.model');
 
 
-const VentaIndivudal = sequelize.define('product', {
-    
-    total: {
-        type: Sequelize.FLOAT,
-        allowNull: false
+const VentaIndivudal = sequelize.define('ventaInvidual', {
 
-    },
-    categoria:{
-      type: Sequelize.STRING,
-    },
-    fecha:{
-        type: Sequelize.DATE,
-      }
   });
-  module.exports = {VentaIndividual}
+  VentaIndivudal.belongsTo(Product, { foreignKey: 'ProductId', allowNull: true });
+  module.exports = {VentaIndivudal}
