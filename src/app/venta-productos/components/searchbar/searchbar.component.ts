@@ -6,15 +6,12 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 })
 export class SearchBarComponent implements OnInit {
     @Output() 
-     searchEvent = new EventEmitter<string>()
+    searchProductEvent = new EventEmitter<string>()
     constructor() { }
 
     ngOnInit(): void { }
-   ;
-    public search(term:string){
-        console.log(term)
-        this.searchEvent.emit(term);
-        
 
+    public searchProduct(term:string){
+        this.searchProductEvent.emit(term);    
     }
 }

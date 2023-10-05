@@ -1,6 +1,6 @@
 export interface Product {
     barcode : string
-    nombre: string
-    precio: number,
-    categoria:string
+    productname: string
+    price: number,
+    category:string
 }

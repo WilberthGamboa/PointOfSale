@@ -16,6 +16,9 @@ const Product = sequelize.define('product', {
         type: Sequelize.FLOAT,
         allowNull: false
 
+    },
+    categoria:{
+      type: Sequelize.STRING,
     }
   });
 module.exports = {Product}

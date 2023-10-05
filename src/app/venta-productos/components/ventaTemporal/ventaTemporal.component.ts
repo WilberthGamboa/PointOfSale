@@ -11,10 +11,11 @@ export class VentaTemporalComponent implements OnInit {
     @Input()
     cambio:number = 0;
     @Output() 
-    dineroIngresado = new EventEmitter<string>()
+    dineroIngresado = new EventEmitter<number>()
     ngOnInit(): void { }
 
     public dinero(dinero:string){
-        this.dineroIngresado.emit(dinero);
+        if (!isNaN(Number(dinero)))        
+        this.dineroIngresado.emit(Number(dinero));
     }
 }

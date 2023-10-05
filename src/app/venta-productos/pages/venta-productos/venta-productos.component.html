@@ -1,9 +1,7 @@
 <div class="row mt-4 container-fluid  ">
 
    <div class="col">
-    <venta-productos-navbar>
-        
-    </venta-productos-navbar>
+    <venta-productos-navbar> </venta-productos-navbar>
    </div>
 
 </div>
@@ -18,7 +16,7 @@
 
     <div class="col-6">
 
-        <venta-productos-searchbar (searchEvent)="getProduct($event)"></venta-productos-searchbar>
+        <venta-productos-searchbar (searchProductEvent)="searchProduct($event)"></venta-productos-searchbar>
         <venta-productos-productlist [products]="products" ></venta-productos-productlist>
     </div>
 
