@@ -14,5 +14,9 @@ export class VentaProductosService {
         return dataValues;
     }
 
+    public async saveSale(term:string){
+      await (window as any).electronAPI.saveSale(term);
+    }
+
     
 }

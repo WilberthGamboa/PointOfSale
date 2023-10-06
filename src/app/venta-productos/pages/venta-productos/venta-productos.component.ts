@@ -25,10 +25,13 @@ export class VentaPageComponent implements OnInit {
         }
       
     }
-    public getcambio(dineroIngresado:number){
+    public async getcambio(dineroIngresado:number){
             const cambioTemporal = dineroIngresado-this.totalSell;
-            if (cambioTemporal>0) 
-            this.cambio = dineroIngresado-this.totalSell;
+            if (cambioTemporal>0){
+                this.cambio = dineroIngresado-this.totalSell;
+               await  this.ventaProductosService.saveSale(this.products[0].barcode);
+            }
+        
                 
             
        
@@ -38,6 +41,7 @@ export class VentaPageComponent implements OnInit {
         this.products = [];
         this.totalSell=0;
         this.cambio=0;
+       
 
     }
     private actualizarVentaActual(price:number){

@@ -6,7 +6,7 @@ class ProductsService {
 
     getProductByCodeBar = async (e,data) => {
        try {
-        console.log({e,data})
+      
         const product = await Product.findOne({
             where:{
                 barcode:data
@@ -22,9 +22,14 @@ class ProductsService {
     }
 
     saveVentaIndividual = async(e,data) =>{
-        const product = await this.getProductByCodeBar(data);
-        console.log(product);
-        //const saveVentaIndivual = new VentaIndivudal({})
+        
+        const product = await this.getProductByCodeBar(e,data);
+        console.log(product.dataValues.id)
+       const ventaIndivual = new VentaIndivudal({
+        ProductId: product.dataValues.id
+       })
+        await ventaIndivual.save();
+        
 
     }
 }

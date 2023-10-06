@@ -1,4 +1,4 @@
-INSERT INTO products (productname, barcode, price, categoriaId)
+INSERT INTO products (productname, barcode, price, categoriaId,createdAt,updatedAt)
 VALUES
     ('TKT L LATA', '75004132', 19, 1),
     ('TKT L LATON', '7501061669289', 24, 1),

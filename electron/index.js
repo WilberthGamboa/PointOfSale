@@ -37,7 +37,8 @@ createWindow = async () => {
     });
 
     initDb();
-    ipcMain.handle('getProductByCodeBar',productService.getProductByCodeBar)
+    ipcMain.handle('getProductByCodeBar',productService.getProductByCodeBar);
+    ipcMain.on('saveVentaIndividual', productService.saveVentaIndividual)
     /*
    const producto = new  Product({
     productname: 'sadfds',
