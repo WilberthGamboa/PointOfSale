@@ -17,11 +17,13 @@ export class VentaPageComponent implements OnInit {
 
     public async searchProduct(term:string){
         const producto= await this.ventaProductosService.searchProduct(term);
+        console.log(producto)
         const {price} = producto;
         if (price) {
             this.actualizarVentaActual(price);
             this.agregarProductoLista(producto);
         }
+      
     }
     public getcambio(dineroIngresado:number){
             this.cambio = dineroIngresado-this.totalSell;

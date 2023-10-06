@@ -8,8 +8,9 @@ export class VentaProductosService {
 
     constructor(){}
 
-    async searchProduct(term:string):Promise<Product> {
+    async searchProduct(term:string) {
         const {dataValues} = await (window as any).electronAPI.getProductByCodeBar(term);
+        console.log(dataValues)
         return dataValues;
     }
 
