@@ -2,7 +2,6 @@
   "name": "punto-de-venta-electron",
   "version": "0.0.0",
   "main": "electron/index.js",
-
   "scripts": {
     "ng": "ng",
     "build": "ng build",
@@ -24,6 +23,7 @@
     "rxjs": "~7.8.0",
     "sequelize": "^6.33.0",
     "sqlite3": "^5.1.6",
+    "sweetalert2": "^11.7.31",
     "tslib": "^2.3.0",
     "zone.js": "~0.13.0"
   },

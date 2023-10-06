@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from '../../interface/product.interface';
 import { VentaProductosService } from '../../services/venta-productos.service';
-
+import Swal from 'sweetalert2'
 @Component({
     selector: 'venta-productos-page',
     templateUrl: './venta-productos.component.html'
@@ -27,15 +27,24 @@ export class VentaPageComponent implements OnInit {
     }
     public async getcambio(dineroIngresado:number){
             const cambioTemporal = dineroIngresado-this.totalSell;
-            if (cambioTemporal>0){
+            if (cambioTemporal>0 && this.totalSell!=0){
                 this.cambio = dineroIngresado-this.totalSell;
                 for (const product of this.products) {
                     await  this.ventaProductosService.saveSale(product.barcode);
                 }
-              
+                const cambioFormateado = new Intl.NumberFormat('es-MX', {
+                    style: 'currency',
+                    currency: 'MXN',
+                  }).format(this.cambio);
+                Swal.fire({
+                    title: 'Venta registrada con éxito',
+                    text: 'El cambio es de: '+ cambioFormateado,
+                    icon: 'success',
+                    confirmButtonText: 'Ok'
+                  })
+              this.resetSale()
             }
-        
-                
+         
             
        
     }
@@ -44,8 +53,8 @@ export class VentaPageComponent implements OnInit {
         this.products = [];
         this.totalSell=0;
         this.cambio=0;
-       
-
+    
+            
     }
     private actualizarVentaActual(price:number){
         this.totalSell = this.totalSell + price;
