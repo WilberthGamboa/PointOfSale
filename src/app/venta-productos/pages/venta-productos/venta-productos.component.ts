@@ -29,7 +29,10 @@ export class VentaPageComponent implements OnInit {
             const cambioTemporal = dineroIngresado-this.totalSell;
             if (cambioTemporal>0){
                 this.cambio = dineroIngresado-this.totalSell;
-               await  this.ventaProductosService.saveSale(this.products[0].barcode);
+                for (const product of this.products) {
+                    await  this.ventaProductosService.saveSale(product.barcode);
+                }
+              
             }
         
                 
