@@ -18,7 +18,22 @@ export class VentaPageComponent implements OnInit {
 
     public async searchProduct(term:string){
         const producto= await this.ventaProductosService.searchProduct(term);
-     
+        let isProduct = false;
+        for (const productoActual of this.cantidadProducts) {
+            if (productoActual.barcode===producto.barcode) {
+                isProduct=true;
+                productoActual.cantidad++;
+            }
+        }
+
+        if (!isProduct) {
+            const nuevoProducto = {
+                ...producto,
+                cantidad:1
+            }
+            this.cantidadProducts.push(nuevoProducto)
+            
+        }
         const {price} = producto;
         if (price) {
             this.actualizarVentaActual(price);
