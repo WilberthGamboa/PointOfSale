@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Product } from '../../interface/product.interface';
+import { CantidadProducto, Product } from '../../interface/product.interface';
 import { VentaProductosService } from '../../services/venta-productos.service';
 import Swal from 'sweetalert2'
 @Component({
@@ -9,6 +9,7 @@ import Swal from 'sweetalert2'
 })
 export class VentaPageComponent implements OnInit {
     products:Product [] = [];
+    cantidadProducts: CantidadProducto [] = [];
     totalSell:number = 0;
     cambio:number=0;
     constructor(private ventaProductosService:VentaProductosService) { }
@@ -17,7 +18,7 @@ export class VentaPageComponent implements OnInit {
 
     public async searchProduct(term:string){
         const producto= await this.ventaProductosService.searchProduct(term);
-        console.log(producto)
+     
         const {price} = producto;
         if (price) {
             this.actualizarVentaActual(price);

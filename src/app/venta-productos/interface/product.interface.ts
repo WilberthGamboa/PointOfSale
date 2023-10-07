@@ -4,3 +4,7 @@ export interface Product {
     price: number,
     category:string
 }
+
+export interface CantidadProducto extends Product {
+    cantidad:number
+}
