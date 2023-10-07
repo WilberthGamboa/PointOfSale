@@ -6,7 +6,7 @@ const { Product } = require("./main/model/product.model");
 const { ProductsService } = require("./main/products/products.service");
 const productService = new ProductsService();
 let appWin;
-
+let createWindow;
 createWindow = async () => {
     appWin = new BrowserWindow({
         width: 800,
@@ -39,6 +39,12 @@ createWindow = async () => {
     initDb();
     ipcMain.handle('getProductByCodeBar',productService.getProductByCodeBar);
     ipcMain.on('saveVentaIndividual', productService.saveVentaIndividual)
+    ipcMain.on('generarCorte', async () => {
+      
+     appWin.hide()
+       await  productService.generarCorte()
+       appWin.show()
+    })
     /*
    const producto = new  Product({
     productname: 'sadfds',

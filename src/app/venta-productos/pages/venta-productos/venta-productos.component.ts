@@ -49,7 +49,7 @@ export class VentaPageComponent implements OnInit {
        
     }
     public resetSale(){
-        //console.log("hola desde reset sale principal")
+    
         this.products = [];
         this.totalSell=0;
         this.cambio=0;
@@ -63,6 +63,10 @@ export class VentaPageComponent implements OnInit {
     private agregarProductoLista(producto:Product){
         this.products.push(producto);
     }
-
+    public generarCorte(){
+  
+          (window as any).electronAPI.generarCorte();
+           
+      }
 
 }

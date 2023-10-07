@@ -27,4 +27,7 @@ export class VentaTemporalComponent implements OnInit {
 
      
     }
+
+   
+  
 }

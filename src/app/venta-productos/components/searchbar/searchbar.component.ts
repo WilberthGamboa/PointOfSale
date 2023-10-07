@@ -12,6 +12,7 @@ export class SearchBarComponent implements OnInit {
     ngOnInit(): void { }
 
     public searchProduct(term:string){
-        this.searchProductEvent.emit(term);    
+        this.searchProductEvent.emit(term); 
+           
     }
 }

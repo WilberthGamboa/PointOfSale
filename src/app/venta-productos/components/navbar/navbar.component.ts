@@ -10,6 +10,10 @@ export class NavBarComponent implements OnInit {
   
     ngOnInit(): void { }
 
-
+    public generarCorte(){
+      console.log(2)
+      //   (window as any).electronAPI.generarCorte();
+         
+    }
 
 }
