@@ -12,6 +12,7 @@ export class VentaPageComponent implements OnInit {
     cantidadProducts: CantidadProducto [] = [];
     totalSell:number = 0;
     cambio:number=0;
+
     constructor(private ventaProductosService:VentaProductosService) { }
 
     ngOnInit(): void { }
@@ -38,6 +39,7 @@ export class VentaPageComponent implements OnInit {
         if (price) {
             this.actualizarVentaActual(price);
             this.agregarProductoLista(producto);
+            
         }
       
     }
@@ -67,8 +69,10 @@ export class VentaPageComponent implements OnInit {
     public resetSale(){
     
         this.products = [];
+        this.cantidadProducts=[];
         this.totalSell=0;
         this.cambio=0;
+        
     
             
     }

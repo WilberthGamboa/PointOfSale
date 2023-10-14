@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, ElementRef, EventEmitter, HostListener, OnInit, Output, ViewChild } from '@angular/core';
 
 @Component({
     selector: 'venta-productos-searchbar',
@@ -6,13 +6,26 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 })
 export class SearchBarComponent implements OnInit {
     @Output() 
-    searchProductEvent = new EventEmitter<string>()
+    searchProductEvent = new EventEmitter<string>();
+    @ViewChild('ref')
+    public txtSearch!: ElementRef<HTMLInputElement>
+
     constructor() { }
 
     ngOnInit(): void { }
 
     public searchProduct(term:string){
-        this.searchProductEvent.emit(term); 
+        this.searchProductEvent.emit(term);
+        this.txtSearch.nativeElement.value=''
            
     }
+    @HostListener('document:keydown', ['$event'])
+  handleKeyboardEvent(event: KeyboardEvent,value:string) {
+    if (event.key === 'ArrowDown') {
+        this.searchProductEvent.emit(value);
+        this.txtSearch.nativeElement.value=''
+      // Se ha presionado la tecla de flecha hacia abajo
+      // Puedes realizar acciones específicas aquí
+    }
+  }
 }

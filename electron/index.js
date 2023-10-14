@@ -25,7 +25,10 @@ createWindow = async () => {
         console.log(title)
       })
     
-  //  appWin.loadURL(`file://${__dirname}/dist/index.html`);
+  //appWin.loadURL(`file://${__dirname}/dist/index.html`);
+  console.log(path.join(__dirname, "..","dist","index.html"))
+  //const pathname =path.join(__dirname, "..","dist","index.html");
+  // appWin.loadURL(pathname);
      appWin.loadURL('http://localhost:4200')
 
     appWin.setMenu(null);

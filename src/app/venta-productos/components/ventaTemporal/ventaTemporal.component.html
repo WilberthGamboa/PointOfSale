@@ -1,12 +1,12 @@
 <div>
     <div class="form-group">
         <label for="precio">Precio: {{totalSell | number}} </label>
-        <input type="text" class="form-control" id="precio" placeholder="Ingrese el precio" #precio>
+        <input type="text" class="form-control" id="precio" placeholder="Ingrese el precio"   #precio>
         <label for="cabmio">Cambio: {{cambio | number}} </label>
     </div>
 
     <button  class="btn btn-primary" (click)="dinero(precio.value)">Cobrar</button>
-    <button  class="btn btn-primary" (click)="resetSale()">Reiniciar Venta</button>
+    <button  class="btn btn-primary ml-2" (click)="resetSale()">Reiniciar Venta</button>
 
    
 </div>

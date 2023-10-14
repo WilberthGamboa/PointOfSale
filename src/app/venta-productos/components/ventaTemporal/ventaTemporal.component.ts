@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 
 @Component({
     selector: 'venta-productos-ventaTemporal',
@@ -13,7 +13,11 @@ export class VentaTemporalComponent implements OnInit {
     @Output() 
     dineroIngresado = new EventEmitter<number>()
     @Output() 
-    resetSaleEventEmitter = new EventEmitter<void>()
+    resetSaleEventEmitter = new EventEmitter<void>();
+
+    @ViewChild('precio') precioInput!: ElementRef<HTMLInputElement>; // Agregamos { static: true }
+
+ 
     ngOnInit(): void { }
 
     public dinero(dinero:string){
@@ -23,7 +27,10 @@ export class VentaTemporalComponent implements OnInit {
 
     public resetSale(){
         console.log("Reset sale hijo")
+       
         this.resetSaleEventEmitter.emit();
+        this.precioInput.nativeElement.value=' '
+        
 
      
     }
