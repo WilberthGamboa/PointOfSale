@@ -18,5 +18,11 @@ export class VentaProductosService {
       await (window as any).electronAPI.saveSale(term);
     }
 
+    public generarCorte(){
+  
+        (window as any).electronAPI.generarCorte();
+         
+    }
+
     
 }

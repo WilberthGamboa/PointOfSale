@@ -8,10 +8,12 @@ import Swal from 'sweetalert2'
 
 })
 export class VentaPageComponent implements OnInit {
+    // Lista de productos
     products:Product [] = [];
     cantidadProducts: CantidadProducto [] = [];
+    //
     totalSell:number = 0;
-    cambio:number=0;
+    cambio:number= 0;
 
     constructor(private ventaProductosService:VentaProductosService) { }
 
@@ -45,7 +47,7 @@ export class VentaPageComponent implements OnInit {
     }
     public async getcambio(dineroIngresado:number){
             const cambioTemporal = dineroIngresado-this.totalSell;
-            if (cambioTemporal>0 && this.totalSell!=0){
+            if (cambioTemporal>=0 && this.totalSell!=0){
                 this.cambio = dineroIngresado-this.totalSell;
                 for (const product of this.products) {
                     await  this.ventaProductosService.saveSale(product.barcode);
@@ -83,10 +85,5 @@ export class VentaPageComponent implements OnInit {
     private agregarProductoLista(producto:Product){
         this.products.push(producto);
     }
-    public generarCorte(){
   
-          (window as any).electronAPI.generarCorte();
-           
-      }
-
 }

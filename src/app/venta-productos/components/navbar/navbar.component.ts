@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { VentaProductosService } from '../../services/venta-productos.service';
 
 @Component({
     selector: 'venta-productos-navbar',
@@ -6,14 +7,15 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class NavBarComponent implements OnInit {
    
-    constructor() { }
+    constructor(private ventaProductosService:VentaProductosService) { }
   
     ngOnInit(): void { }
 
     public generarCorte(){
-      console.log(2)
-      //   (window as any).electronAPI.generarCorte();
-         
-    }
+  
+      this.ventaProductosService.generarCorte();
+       
+  }
+
 
 }
