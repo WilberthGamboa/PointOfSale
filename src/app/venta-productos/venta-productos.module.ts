@@ -5,6 +5,7 @@ import { NavBarComponent } from './components/navbar/navbar.component';
 import { SearchBarComponent } from './components/searchbar/searchbar.component';
 import { ProductListComponent } from './components/productslist/productlist.component';
 import { VentaTemporalComponent } from './components/ventaTemporal/ventaTemporal.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
     declarations: [
@@ -14,7 +15,7 @@ import { VentaTemporalComponent } from './components/ventaTemporal/ventaTemporal
         ProductListComponent,
         VentaTemporalComponent
     ],
-    imports: [ CommonModule ],
+    imports: [ CommonModule,NgbModule ],
     exports: [VentaPageComponent, NavBarComponent,SearchBarComponent,ProductListComponent],
     providers: [],
 })

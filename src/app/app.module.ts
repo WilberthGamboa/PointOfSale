@@ -8,6 +8,7 @@ import { HomeModule } from './home/home.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,7 +19,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     AppRoutingModule,
     VentaProductosModule,
     HomeModule,
-    NgbModule
+    NgbModule,
+   
   ],
   providers: [],
   bootstrap: [AppComponent]
