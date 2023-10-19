@@ -6,7 +6,7 @@ import { Component, ElementRef, EventEmitter, HostListener, OnInit, Output, View
 })
 export class SearchBarComponent implements OnInit {
     @Output() 
-    searchProductEvent = new EventEmitter<string>();
+    searchProductEvent = new EventEmitter<any>();
     @ViewChild('ref')
     public txtSearch!: ElementRef<HTMLInputElement>
     @ViewChild('inputNumber')
@@ -15,15 +15,23 @@ export class SearchBarComponent implements OnInit {
 
     ngOnInit(): void { }
 
-    public searchProduct(term:string){
-        this.searchProductEvent.emit(term);
+    public searchProduct(term:any){
+      const test = {
+        xd:this.inputNumber.nativeElement.value,
+        xd2:   this.txtSearch.nativeElement.value
+      }
+        this.searchProductEvent.emit(test);
         this.txtSearch.nativeElement.value=''
            
     }
     @HostListener('document:keydown', ['$event'])
   handleKeyboardEvent(event: KeyboardEvent,value:string) {
     if (event.key === 'ArrowDown') {
-        this.searchProductEvent.emit(value);
+      const test = {
+        xd:this.inputNumber.nativeElement.value,
+        xd2:   this.txtSearch.nativeElement.value
+      }
+        this.searchProductEvent.emit(test);
         this.txtSearch.nativeElement.value=''
         this.inputNumber.nativeElement.value='1'
       // Se ha presionado la tecla de flecha hacia abajo

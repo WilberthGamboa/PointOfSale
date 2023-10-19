@@ -19,8 +19,10 @@ export class VentaPageComponent implements OnInit {
 
     ngOnInit(): void { }
 
-    public async searchProduct(term:string){
-        const producto= await this.ventaProductosService.searchProduct(term);
+    public async searchProduct(term:any){
+        console.log({term})
+       for (let index = 0; index < Number(term.xd); index++) {
+        const producto= await this.ventaProductosService.searchProduct(term.xd2);
         let isProduct = false;
         for (const productoActual of this.cantidadProducts) {
             if (productoActual.barcode===producto.barcode) {
@@ -43,6 +45,9 @@ export class VentaPageComponent implements OnInit {
             this.agregarProductoLista(producto);
             
         }
+        
+       }
+    
       
     }
     public async getcambio(dineroIngresado:number){
