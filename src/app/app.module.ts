@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { VentaProductosModule } from './venta-productos/venta-productos.module';
 import { HomeModule } from './home/home.module';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { HomeModule } from './home/home.module';
     BrowserModule,
     AppRoutingModule,
     VentaProductosModule,
-    HomeModule
+    HomeModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

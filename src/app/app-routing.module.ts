@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomePageComponentComponent } from './home/pages/home-page/home-page-component/home-page-component.component';
 import { VentaProductosModule } from './venta-productos/venta-productos.module';
 import { VentaPageComponent } from './venta-productos/pages/venta-productos/venta-productos.component';
+import { CrudProductosComponent } from './crud-productos/pages/crud-productos/crud-productos.component';
 
 const routes: Routes = [
   {
@@ -12,6 +13,10 @@ const routes: Routes = [
   {
     path:'puntoDeVenta',
     component:VentaPageComponent
+  },
+  {
+    path:'crudProductos',
+    component:CrudProductosComponent
   }
 ];
 
