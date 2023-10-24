@@ -19,7 +19,7 @@
                 <td>{{product.barcode}}</td>
                 <td>{{product.productname}}</td>
                 <td>{{product.price}}</td>
-            <td class=" p-1">
+            <td (click)="deleteProduct(i)"  class=" p-1">
                 <img src="/assets/delete-trash-svgrepo-com.svg" alt=""  class="mt-0" >
             </td>       
             </tr>

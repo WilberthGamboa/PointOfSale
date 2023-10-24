@@ -77,6 +77,13 @@ export class VentaPageComponent implements OnInit {
 
       
     }
+    //tabla
+    public deleteProductList(i:number){
+        this.products.splice(i,1)
+        this.cantidadProducts.splice(i,1);
+        console.log(this.products)
+        console.log(this.cantidadProducts)
+    }
     //Métodos propios
 
     private actualizarVentaActual(price: number) {
