@@ -38,6 +38,13 @@ export class VentaPageComponent implements OnInit {
                 confirmButtonText: 'Ok'
             })
             this.resetSale()
+        }else{
+            Swal.fire({
+                title: 'Verificar dinero a cobrar',
+                text: 'No se puede realizar venta si se cobra menos de lo que se vende',
+                icon: 'error',
+                confirmButtonText: 'Ok'
+            })
         }
     }
 
@@ -79,10 +86,12 @@ export class VentaPageComponent implements OnInit {
     }
     //tabla
     public deleteProductList(i:number){
-        this.products.splice(i,1)
-        this.cantidadProducts.splice(i,1);
-        console.log(this.products)
-        console.log(this.cantidadProducts)
+    
+  
+        console.log(    this.products.splice(i,1))
+        const temp  =     this.cantidadProducts.splice(i,1)
+        const dineroActualizar = temp[0].cantidad*temp[0].price;
+        this.totalSell= this.totalSell-dineroActualizar;
     }
     //Métodos propios
 
