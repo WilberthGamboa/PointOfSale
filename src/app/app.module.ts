@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { VentaProductosModule } from './venta-productos/venta-productos.module';
 import { HomeModule } from './home/home.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { CrudProductosModule } from './crud-productos/crud-productos.module';
 
 
 
@@ -20,6 +21,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     VentaProductosModule,
     HomeModule,
     NgbModule,
+    CrudProductosModule
    
   ],
   providers: [],

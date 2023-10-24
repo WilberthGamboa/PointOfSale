@@ -48,6 +48,7 @@ createWindow = async () => {
        await  productService.generarCorte()
        appWin.show()
     })
+    ipcMain.handle('getCategories',productService.getCategories)
     /*
    const producto = new  Product({
     productname: 'sadfds',

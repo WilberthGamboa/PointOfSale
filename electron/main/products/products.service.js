@@ -37,6 +37,14 @@ class ProductsService {
 
     }
 
+    getCategories = async (e) =>{
+        try {
+            const categories = await  Categoria.findAll();
+            return categories;
+        } catch (error) {
+            
+        }
+    }
     generarCorte = async () => {
         const fechaActual = new Date();
         const año = fechaActual.getFullYear();

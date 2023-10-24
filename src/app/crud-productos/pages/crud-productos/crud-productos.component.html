@@ -1,1 +1,17 @@
-<p>crud-productos works!</p>
+<h1>Agregar barcode</h1>
+
+
+<form >
+  <input type="text" placeholder="barcode a agregar"  name="barcode">
+  <input type="text" placeholder="nombre producto" name="nombre">
+  <input type="number" placeholder="precio producto"  name="precio">
+  <select  name="categoria">
+    <option *ngFor="let item of categories" [value]="item">{{ item}}</option>
+  </select>
+  <button type="submit">Agregar Producto</button>
+</form>
+
+
+
+
+
