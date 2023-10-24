@@ -1,7 +1,18 @@
  
     <div>
-        <input (keyup.enter)="searchProduct(ref.value)" (keydown)="handleKeyboardEvent($event,ref.value)" type="search" class="form-control" #ref >
-        <input (keyup.enter)="searchProduct(ref.value)" (keydown)="handleKeyboardEvent($event,ref.value)" type="number" class="form-control" value="1" #inputNumber >
+        <!-- 
+             (keydown)="handleKeyboardEvent($event)" 
+        -->
+        <input    
+        type="number" class="form-control" value="1" min="1"
+         #inputNumber >
+
+        <input 
+        (keyup.enter)="searchProductEnterEvent()" 
+        (keydown)="searchProductEnterArrowDown($event)"
+        type="search" class="form-control" 
+        #inputBarcode >
+  
 
     </div>
     

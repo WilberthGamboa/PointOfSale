@@ -1,41 +1,54 @@
 import { Component, ElementRef, EventEmitter, HostListener, OnInit, Output, ViewChild } from '@angular/core';
+import { SearchBarProduct } from '../../interface/searchBarProduct.interface';
+import Swal from 'sweetalert2';
 
 @Component({
     selector: 'venta-productos-searchbar',
     templateUrl: './searchbar.component.html'
 })
 export class SearchBarComponent implements OnInit {
+    //EE
     @Output() 
-    searchProductEvent = new EventEmitter<any>();
-    @ViewChild('ref')
-    public txtSearch!: ElementRef<HTMLInputElement>
+    searchProductEE = new EventEmitter<SearchBarProduct>();
+    // Inputs
+    @ViewChild('inputBarcode')
+    public inputBarcode!: ElementRef<HTMLInputElement>
     @ViewChild('inputNumber')
     public inputNumber!: ElementRef<HTMLInputElement>
     constructor() { }
 
     ngOnInit(): void { }
 
-    public searchProduct(term:any){
-      const test = {
-        xd:this.inputNumber.nativeElement.value,
-        xd2:   this.txtSearch.nativeElement.value
-      }
-        this.searchProductEvent.emit(test);
-        this.txtSearch.nativeElement.value=''
-           
-    }
-    @HostListener('document:keydown', ['$event'])
-  handleKeyboardEvent(event: KeyboardEvent,value:string) {
+    // Debemos refactorizar
+  public searchProductEnterEvent(){
+    this.searchProduct();
+  }
+
+
+  @HostListener('document:keydown', ['$event'])
+  public searchProductEnterArrowDown(event: KeyboardEvent) {
     if (event.key === 'ArrowDown') {
-      const test = {
-        xd:this.inputNumber.nativeElement.value,
-        xd2:   this.txtSearch.nativeElement.value
-      }
-        this.searchProductEvent.emit(test);
-        this.txtSearch.nativeElement.value=''
-        this.inputNumber.nativeElement.value='1'
-      // Se ha presionado la tecla de flecha hacia abajo
-      // Puedes realizar acciones específicas aquí
+      this.searchProduct();
     }
+  }
+  private searchProduct(){
+    const inputBarcodeValue = this.inputBarcode.nativeElement.value;
+    const inputNumberValue = Number(this.inputNumber.nativeElement.value);
+    if (isNaN(inputNumberValue)||inputNumberValue<=0) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Inserta la cantidad de productos',
+        text: 'Recuerda que la cantidad de productos mínima es 1'
+      })
+      this.inputNumber.nativeElement.value='1';
+    }else{
+      const searchBarProduct:SearchBarProduct = {
+        codebar:inputBarcodeValue ,
+        numberOfProducts: inputNumberValue
+      }
+      this.searchProductEE.emit(searchBarProduct);
+      this.inputBarcode.nativeElement.value='';
+      this.inputNumber.nativeElement.value='1';
+    }    
   }
 }

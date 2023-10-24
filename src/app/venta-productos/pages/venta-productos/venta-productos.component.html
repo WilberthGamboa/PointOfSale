@@ -6,13 +6,16 @@
 
 <div class="row mt-4 container-fluid">
     <div class="col-6">
-
-        <venta-productos-ventaTemporal [totalSell]="totalSell" (dineroIngresado)="getcambio($event)" [cambio]="cambio"
-            (resetSaleEventEmitter)="resetSale()"></venta-productos-ventaTemporal>
+        <venta-productos-ventaTemporal 
+        [totalSell]="totalSell" 
+        [cambio]="cambio"
+        (dineroIngresado)="getcambio($event)" 
+        (resetSaleEventEmitter)="resetSale()">
+    </venta-productos-ventaTemporal>
     </div>
     <div class="col-6">
 
-        <venta-productos-searchbar (searchProductEvent)="searchProduct($event)"></venta-productos-searchbar>
+        <venta-productos-searchbar (searchProductEE)="searchProduct($event)"></venta-productos-searchbar>
         <venta-productos-productlist [cantidadProducts]="cantidadProducts"></venta-productos-productlist>
     </div>
 
