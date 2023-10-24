@@ -9,8 +9,8 @@
         <venta-productos-ventaTemporal 
         [totalSell]="totalSell" 
         [cambio]="cambio"
-        (dineroIngresado)="getcambio($event)" 
-        (resetSaleEventEmitter)="resetSale()">
+        (receivedAmountEE)="changeSale($event)" 
+        (resetSaleEE)="resetSale()">
     </venta-productos-ventaTemporal>
     </div>
     <div class="col-6">

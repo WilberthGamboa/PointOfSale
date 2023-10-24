@@ -34,11 +34,11 @@ export class SearchBarComponent implements OnInit {
   private searchProduct(){
     const inputBarcodeValue = this.inputBarcode.nativeElement.value;
     const inputNumberValue = Number(this.inputNumber.nativeElement.value);
-    if (isNaN(inputNumberValue)||inputNumberValue<=0) {
+    if (isNaN(inputNumberValue)||inputNumberValue<=0||inputNumberValue>=100) {
       Swal.fire({
         icon: 'error',
         title: 'Inserta la cantidad de productos',
-        text: 'Recuerda que la cantidad de productos mínima es 1'
+        text: 'Recuerda que la cantidad de productos mínima es 1 y la máxima de 100'
       })
       this.inputNumber.nativeElement.value='1';
     }else{

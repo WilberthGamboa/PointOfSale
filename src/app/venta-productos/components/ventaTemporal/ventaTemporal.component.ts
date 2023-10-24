@@ -1,4 +1,5 @@
 import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
+import Swal from 'sweetalert2';
 
 @Component({
     selector: 'venta-productos-ventaTemporal',
@@ -6,33 +7,40 @@ import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild }
 })
 export class VentaTemporalComponent implements OnInit {
     constructor() { }
+    //@Inputs
     @Input()
     totalSell:number = 0;
     @Input()
     cambio:number = 0;
+    //@Output
     @Output() 
-    dineroIngresado = new EventEmitter<number>()
+    receivedAmountEE = new EventEmitter<number>()
     @Output() 
-    resetSaleEventEmitter = new EventEmitter<void>();
+    resetSaleEE = new EventEmitter<void>();
+    //Input
+    @ViewChild('inputMontoRecibo') 
+    inputMontoRecibido!: ElementRef<HTMLInputElement>; // Agregamos { static: true }
 
-    @ViewChild('precio') precioInput!: ElementRef<HTMLInputElement>; // Agregamos { static: true }
 
- 
     ngOnInit(): void { }
 
-    public dinero(dinero:string){
-        if (!isNaN(Number(dinero)))        
-        this.dineroIngresado.emit(Number(dinero));
+    public receivedAmount(){
+        const inputMontoRecibidoValue = Number(this.inputMontoRecibido.nativeElement.value);
+        if (!isNaN(inputMontoRecibidoValue)&&inputMontoRecibidoValue>=1){
+            this.receivedAmountEE.emit(inputMontoRecibidoValue);
+        }else{
+            Swal.fire({
+                icon: 'error',
+                title: 'Verificar efectivo',
+                text: 'El dinero a recibir debe ser minimo de un peso'
+              })
+        }
+      
     }
 
-    public resetSale(){
-        console.log("Reset sale hijo")
-       
-        this.resetSaleEventEmitter.emit();
-        this.precioInput.nativeElement.value=' '
-        
-
-     
+    public resetSale(){      
+        this.resetSaleEE.emit();
+        this.inputMontoRecibido.nativeElement.value=' '
     }
 
    

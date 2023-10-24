@@ -20,10 +20,10 @@ export class VentaPageComponent implements OnInit {
 
     ngOnInit(): void { }
     //VentaTemporal
-    public async getcambio(dineroIngresado: number) {
-        const cambioTemporal = dineroIngresado - this.totalSell;
-        if (cambioTemporal >= 0 && this.totalSell != 0) {
-            this.cambio = dineroIngresado - this.totalSell;
+    public async changeSale(receivedAmount: number) {
+        const changeSale = receivedAmount - this.totalSell;
+        if (changeSale >= 0 && this.totalSell != 0) {
+            this.cambio = changeSale - this.totalSell;
             for (const product of this.products) {
                 await this.ventaProductosService.saveSale(product.barcode);
             }
