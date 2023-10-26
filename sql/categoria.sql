@@ -1,4 +1,27 @@
-INSERT INTO categoria (categoriaName,createdAt,updatedAt)
-VALUES  
- 
- ('Cerveza','2023-10-05 10:00:00', '2023-10-05 10:00:00')
+INSERT INTO
+    categoria (categoriaName, createdAt, updatedAt)
+VALUES
+    (
+        'Cerveza',
+        '2023-10-05 10:00:00',
+        '2023-10-05 10:00:00'
+    ),
+    (
+        'Abarrotes',
+        '2023-10-05 10:00:00',
+        '2023-10-05 10:00:00'
+    ),
+    (
+        'Refrescos',
+        '2023-10-05 10:00:00',
+        '2023-10-05 10:00:00'
+    ),
+    (
+        'Cigarros',
+        '2023-10-05 10:00:00',
+        '2023-10-05 10:00:00'
+    ), (
+        'Hielo',
+        '2023-10-05 10:00:00',
+        '2023-10-05 10:00:00'
+    );

@@ -11,7 +11,7 @@ createWindow = async () => {
     appWin = new BrowserWindow({
         width: 800,
         height: 600,
-        title: "Angular and Electron",
+        title: "PointOfSale",
         resizable: true,
         webPreferences: {
             preload: path.join(__dirname,'preload', 'preload.js'),
@@ -25,7 +25,10 @@ createWindow = async () => {
         console.log(title)
       })
     
-  //  appWin.loadURL(`file://${__dirname}/dist/index.html`);
+  //appWin.loadURL(`file://${__dirname}/dist/index.html`);
+  console.log(path.join(__dirname, "..","dist","index.html"))
+  //const pathname =path.join(__dirname, "..","dist","index.html");
+  // appWin.loadURL(pathname);
      appWin.loadURL('http://localhost:4200')
 
     appWin.setMenu(null);
@@ -45,6 +48,8 @@ createWindow = async () => {
        await  productService.generarCorte()
        appWin.show()
     })
+    ipcMain.handle('getCategories',productService.getCategories);
+    ipcMain.handle('saveNewProduct',productService.saveNewProduct);
     /*
    const producto = new  Product({
     productname: 'sadfds',

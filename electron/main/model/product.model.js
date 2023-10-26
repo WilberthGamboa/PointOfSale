@@ -7,11 +7,13 @@ const { Categoria } = require('./categoria.model');
 const Product = sequelize.define('product', {
     productname: {
       type: Sequelize.STRING,
-      allowNull: false
+      allowNull: false,
+      unique:true
     },
     barcode: {
       type: Sequelize.STRING,
-      allowNull: false
+      allowNull: false,
+      unique:true
     },
     price: {
         type: Sequelize.FLOAT,

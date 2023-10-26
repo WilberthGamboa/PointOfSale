@@ -13,7 +13,7 @@ const Sequelize = require('sequelize');
 });
 
  const initDb = () =>{
-    sequelize.sync().then(() => {
+    sequelize.sync({alter:true}).then(() => {
         console.log("Base de datos creada correctamente");
       }).catch((error) => {
         console.error("Error al crear la base de datos:", error);

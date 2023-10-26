@@ -1,5 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { Product } from '../../interface/product.interface';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { CantidadProducto } from '../../interface/product.interface';
+
 
 @Component({
     selector: 'venta-productos-productlist',
@@ -15,7 +16,16 @@ import { Product } from '../../interface/product.interface';
 })
 export class ProductListComponent implements OnInit {
     constructor() { }
+    //@Input
     @Input()
-    products:Product[] = [];
+    cantidadProducts:CantidadProducto[] = [];
+    //@Output
+    @Output()
+    deleteProductEE = new EventEmitter<number>;
     ngOnInit(): void { }
+
+    public deleteProduct(i:any){
+        this.deleteProductEE.emit(i);
+        console.log(`El valor es: ${i}`);
+    }
 }
