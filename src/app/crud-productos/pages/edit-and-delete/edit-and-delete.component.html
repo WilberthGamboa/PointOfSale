@@ -1,0 +1,19 @@
+<shared-button-home></shared-button-home>
+
+<!--
+
+    (keyup.enter)="searchProductEnterEvent()" 
+(keydown)="searchProductEnterArrowDown($event)"
+-->
+<div>
+    <input type="text" placeholder="barcode a agregar"  name="barcode" #inputBarcode>
+    <input type="text" placeholder="nombre producto" name="nombre" #inputProductName>
+    <input type="number" placeholder="precio producto"  name="precio" #inputProductCost>
+   
+</div>
+<div>
+    <input type="button" value="Edit">
+    <input type="button" value="Delete">
+</div>
+
+

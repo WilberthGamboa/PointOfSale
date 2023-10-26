@@ -4,6 +4,7 @@ import { HomePageComponentComponent } from './home/pages/home-page/home-page-com
 import { VentaProductosModule } from './venta-productos/venta-productos.module';
 import { VentaPageComponent } from './venta-productos/pages/venta-productos/venta-productos.component';
 import { CrudProductosComponent } from './crud-productos/pages/crud-productos/crud-productos.component';
+import { EditAndDeleteComponent } from './crud-productos/pages/edit-and-delete/edit-and-delete.component';
 
 const routes: Routes = [
   {
@@ -17,6 +18,10 @@ const routes: Routes = [
   {
     path:'crudProductos',
     component:CrudProductosComponent
+  },
+  {
+    path:'crudProductos/editAndDelete',
+    component:EditAndDeleteComponent
   }
 ];
 
