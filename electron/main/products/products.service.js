@@ -125,7 +125,10 @@ class ProductsService {
         }
       
     }
+    saveNewProduct = async(e, data) => {
+        console.log(`data desde electron ${data}`)
 
+    }
 }
 
 module.exports = { ProductsService }

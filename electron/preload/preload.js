@@ -5,4 +5,5 @@ contextBridge.exposeInMainWorld('electronAPI', {
   saveSale: async (barcode) => ipcRenderer.send('saveVentaIndividual',barcode),
   generarCorte: () => ipcRenderer.send('generarCorte'),
   getCategories: async () => ipcRenderer.invoke('getCategories'),
+  saveNewProduct : async (data) =>ipcRenderer.invoke('saveNewProduct',data)
 })

@@ -14,4 +14,7 @@ export class CrudProductosService {
   
   return await (window as any).electronAPI.getCategories();
   }
+  async saveNewProduct(data:any){
+    return await (window as any).electronAPI.saveNewProduct(data);
+  }
 }

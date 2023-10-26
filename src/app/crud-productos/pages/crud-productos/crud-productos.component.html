@@ -2,13 +2,13 @@
 
 
 <form >
-  <input type="text" placeholder="barcode a agregar"  name="barcode">
-  <input type="text" placeholder="nombre producto" name="nombre">
-  <input type="number" placeholder="precio producto"  name="precio">
-  <select  name="categoria">
+  <input type="text" placeholder="barcode a agregar"  name="barcode" #inputBarcode>
+  <input type="text" placeholder="nombre producto" name="nombre" #inputProductName>
+  <input type="number" placeholder="precio producto"  name="precio" #inputProductCost>
+  <select  [(ngModel)]="selectedValue" name="categoria">
     <option *ngFor="let item of categories" [value]="item">{{ item}}</option>
   </select>
-  <button type="submit">Agregar Producto</button>
+  <button type="submit" (click)="saveNewProduct()">Agregar Producto</button>
 </form>
 
 
