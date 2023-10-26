@@ -142,7 +142,7 @@ class ProductsService {
        await test.save()
        
        } catch (error) {
-        console.log(error)
+        return error.errors[0].message;
        }
   
 

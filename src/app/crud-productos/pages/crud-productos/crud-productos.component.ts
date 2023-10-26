@@ -50,7 +50,16 @@ selectedValue: string = 'Cerveza';
       price:Number(inputProductCostValue),
       categoryName:this.selectedValue
     }
-    await this.crudProductosService.saveNewProduct(data);
+    const response = await this.crudProductosService.saveNewProduct(data);
+    console.log(response)
+    if (response!=undefined) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: `Mensaje de error: ${response}`
+       
+      })
+    }
   }
 
 
