@@ -1,5 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { CrudProductosService } from '../../services/crud-productos.service';
+import Swal from 'sweetalert2';
 
 @Component({
   templateUrl: './crud-productos.component.html',
@@ -34,9 +35,21 @@ selectedValue: string = 'Cerveza';
     const inputBarcodeValue = this.inputBarcode.nativeElement.value;
     const inputProductNameValue = this.inputProductName.nativeElement.value;
     const inputProductCostValue = this.inputProductCost.nativeElement.value;
-    console.log({inputBarcodeValue,inputProductCostValue,inputProductNameValue})
-    console.log(this.selectedValue);
-    await this.crudProductosService.saveNewProduct('hola');
+    if (inputBarcodeValue=='' || inputProductNameValue==''||isNaN(Number(inputProductCostValue))) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Something went wrong!',
+       
+      })
+    }
+    const data = {
+      productname: inputProductNameValue,
+      barcode:inputBarcodeValue,
+      price:Number(inputProductCostValue),
+      categoryName:this.selectedValue
+    }
+    await this.crudProductosService.saveNewProduct(data);
   }
 
 

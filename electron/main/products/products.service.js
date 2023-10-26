@@ -126,7 +126,15 @@ class ProductsService {
       
     }
     saveNewProduct = async(e, data) => {
-        console.log(`data desde electron ${data}`)
+        const category = await Categoria.findOne({
+            where:{
+                categoriaName:data.categoryName
+            }
+        })
+        console.log(data.categoryName)
+        console.log('categoria devuelta: ')
+        console.log(category)
+       
 
     }
 }
