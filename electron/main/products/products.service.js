@@ -126,15 +126,25 @@ class ProductsService {
       
     }
     saveNewProduct = async(e, data) => {
+       try {
+        const {categoryName,...restData} = data;
         const category = await Categoria.findOne({
             where:{
                 categoriaName:data.categoryName
             },
             raw:true
         })
-        
+       const test = new Product({
+        ...restData,
+        categoriaId:category.id
+
+       })
+       await test.save()
        
-       
+       } catch (error) {
+        console.log(error)
+       }
+  
 
     }
 }

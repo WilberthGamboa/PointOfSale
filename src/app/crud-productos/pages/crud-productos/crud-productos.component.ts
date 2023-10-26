@@ -35,13 +35,14 @@ selectedValue: string = 'Cerveza';
     const inputBarcodeValue = this.inputBarcode.nativeElement.value;
     const inputProductNameValue = this.inputProductName.nativeElement.value;
     const inputProductCostValue = this.inputProductCost.nativeElement.value;
-    if (inputBarcodeValue=='' || inputProductNameValue==''||isNaN(Number(inputProductCostValue))) {
+    if (inputBarcodeValue=='' || inputProductNameValue==''||isNaN(Number(inputProductCostValue))||inputProductCostValue=='') {
       Swal.fire({
         icon: 'error',
         title: 'Oops...',
         text: 'Something went wrong!',
        
       })
+      return;
     }
     const data = {
       productname: inputProductNameValue,
