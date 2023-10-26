@@ -129,11 +129,11 @@ class ProductsService {
         const category = await Categoria.findOne({
             where:{
                 categoriaName:data.categoryName
-            }
+            },
+            raw:true
         })
-        console.log(data.categoryName)
-        console.log('categoria devuelta: ')
-        console.log(category)
+        
+       
        
 
     }
