@@ -5,12 +5,17 @@
     (keyup.enter)="searchProductEnterEvent()" 
 (keydown)="searchProductEnterArrowDown($event)"
 -->
-<div>
+<form >
     <input type="text" placeholder="barcode a agregar"  name="barcode" #inputBarcode>
     <input type="text" placeholder="nombre producto" name="nombre" #inputProductName>
     <input type="number" placeholder="precio producto"  name="precio" #inputProductCost>
-   
-</div>
+    <select  [(ngModel)]="selectedValue" name="categoria">
+      <option *ngFor="let item of categories" [value]="item">{{ item}}</option>
+    </select>
+    <button type="submit" (click)="saveNewProduct()">Editar</button>
+  </form>
+  
+  
 <div>
     <input type="button" value="Edit">
     <input type="button" value="Delete">
