@@ -50,6 +50,7 @@ createWindow = async () => {
     })
     ipcMain.handle('getCategories',productService.getCategories);
     ipcMain.handle('saveNewProduct',productService.saveNewProduct);
+    ipcMain.handle('getProductByCodeBarWithCategory',productService.getProductByCodeBarWithCategory);
     /*
    const producto = new  Product({
     productname: 'sadfds',

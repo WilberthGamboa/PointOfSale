@@ -21,5 +21,5 @@ const Product = sequelize.define('product', {
 
     }
   });
-  Product.belongsTo(Categoria, { foreignKey: 'categoriaId', allowNull: true });
+  Product.belongsTo(Categoria, { foreignKey: 'categoriaId', allowNull: false });
 module.exports = {Product}

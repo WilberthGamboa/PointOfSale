@@ -3,12 +3,14 @@
   import { CrudProductosComponent } from './pages/crud-productos/crud-productos.component';
   import { SharedModule } from '../shared/shared.module';
   import { FormsModule } from '@angular/forms';
+import { EditProductosComponent } from './pages/edit-productos/edit-productos.component';
 
 
 
   @NgModule({
     declarations: [
-      CrudProductosComponent
+      CrudProductosComponent,
+      EditProductosComponent
     ],
     imports: [
       CommonModule,

@@ -1,0 +1,13 @@
+<div>
+    <label for="">Inserte el codigo de barras del producto a editar</label>
+    <input type="text" placeholder="barcode a agregar" (keyup.enter)="searchProduct()" name="barcode" #inputBarcode>
+</div>
+<form >
+  
+    <input type="text" placeholder="nombre producto" name="nombre" #inputProductName>
+    <input type="number" placeholder="precio producto"  name="precio" #inputProductCost>
+    <select  [(ngModel)]="selectedValue" name="categoria">
+      <option *ngFor="let item of categories" [value]="item">{{ item}}</option>
+    </select>
+    <button type="submit" (click)="saveNewProduct()">Agregar Producto</button>
+  </form>

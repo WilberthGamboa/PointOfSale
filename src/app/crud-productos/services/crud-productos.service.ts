@@ -8,6 +8,11 @@ export class CrudProductosService {
 
   constructor() { }
 
+  async searchProduct(term:string) {
+    const dataValues = await (window as any).electronAPI.getProductByCodeBarWithCategory(term);
+    console.log(dataValues)
+    return dataValues;
+}
 
 
   async getCategories(){

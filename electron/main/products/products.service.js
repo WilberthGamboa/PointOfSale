@@ -147,6 +147,33 @@ class ProductsService {
   
 
     }
+
+    getProductByCodeBarWithCategory = async (e, data) => {
+        try {
+            console.log(data)
+            const product = await Product.findOne({
+                where: {
+                    barcode: data
+                },
+                include:[
+                    {model:Categoria}
+                ],
+                
+            })
+          
+           // console.log(JSON.stringify(product))
+           const x = JSON.stringify(product)
+           console.log(x)
+          const z = JSON.parse(x)
+          console.log(z)
+            return z;
+        } catch (error) {
+            console.log(error)
+        }
+
+
+    }
+
 }
 
 module.exports = { ProductsService }
