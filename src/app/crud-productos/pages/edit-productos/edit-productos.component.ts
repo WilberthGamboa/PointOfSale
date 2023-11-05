@@ -1,7 +1,9 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { CrudProductosService } from '../../services/crud-productos.service';
 import Swal from 'sweetalert2';
-import { Product } from 'src/app/venta-productos/interface/product.interface';
+import { ProductWithCategory } from '../../interface/modelos';
+
+
 
 @Component({
   templateUrl: './edit-productos.component.html',
@@ -10,66 +12,55 @@ import { Product } from 'src/app/venta-productos/interface/product.interface';
 })
 export class EditProductosComponent {
   categories: any = [
-   
-  ]; 
+
+  ];
   // ViewChild
-@ViewChild('inputBarcode')
-inputBarcode!: ElementRef<HTMLInputElement>
+  @ViewChild('inputBarcode')
+  inputBarcode!: ElementRef<HTMLInputElement>
 
-@ViewChild('inputProductName')
-inputProductName!: ElementRef<HTMLInputElement>
+  @ViewChild('inputProductName')
+  inputProductName!: ElementRef<HTMLInputElement>
 
-@ViewChild('inputProductCost')
-inputProductCost!: ElementRef<HTMLInputElement>
+  @ViewChild('inputProductCost')
+  inputProductCost!: ElementRef<HTMLInputElement>
 
-selectedValue: string = 'Cerveza';
+  selectedValue: string = 'Cerveza';
 
-productoBuscado:Product = {
-  barcode: '',
-  productname: '',
-  price: 0,
-  category: ''
-}
-  constructor(private crudProductosService:CrudProductosService){}
-
-  async searchProduct(){
- const x = await this.crudProductosService.searchProduct(this.inputBarcode.nativeElement.value);
- console.log({x})
- this.productoBuscado = x;
-  this.inputProductName.nativeElement.value = this.productoBuscado.productname;
-  this.inputProductCost.nativeElement.value= String(this.productoBuscado.price);
-  console.log(this.productoBuscado.category)
-  this.selectedValue= this.productoBuscado.category;
-
-  }
-  async saveNewProduct(){
-    const inputBarcodeValue = this.inputBarcode.nativeElement.value;
-    const inputProductNameValue = this.inputProductName.nativeElement.value;
-    const inputProductCostValue = this.inputProductCost.nativeElement.value;
-    if (inputBarcodeValue=='' || inputProductNameValue==''||isNaN(Number(inputProductCostValue))||inputProductCostValue=='') {
-      Swal.fire({
-        icon: 'error',
-        title: 'Oops...',
-        text: 'Something went wrong!',
-       
-      })
-      return;
-    }
-    const data = {
-      productname: inputProductNameValue,
-      barcode:inputBarcodeValue,
-      price:Number(inputProductCostValue),
-      categoryName:this.selectedValue
-    }
-    const response = await this.crudProductosService.saveNewProduct(data);
-    console.log(response)
-    if (response!=undefined) {
-      Swal.fire({
-        icon: 'error',
-        title: 'Oops...',
-        text: `Mensaje de error: ${response}`
-       
-      })
+  productoBuscado: ProductWithCategory = {
+    id: 0,
+    productname: '',
+    barcode: '',
+    price: 0,
+    createdAt: '',
+    updatedAt: '',
+    categoriaId: 0,
+    categorium: {
+      id: 0,
+      categoriaName: '',
+      createdAt: '',
+      updatedAt: ''
     }
   }
+  constructor(private crudProductosService: CrudProductosService) { }
+
+  async searchProduct() {
+    const x = await this.crudProductosService.searchProduct(this.inputBarcode.nativeElement.value);
+    console.log({ x })
+    //this.productoBuscado = x;
+    this.inputProductName.nativeElement.value = x.productname;
+    this.inputProductCost.nativeElement.value = String(x.price);
+    console.log(x.categorium.categoriaName)
+    this.selectedValue = x.categorium.categoriaName;
+    const xD = await this.crudProductosService.getCategories();
+    for (const iterator of xD) {
+      this.categories.push(iterator.dataValues.categoriaName)
+    }
+  }
+
+  async editProduct(){
+    
+  }
+
+
+
 }
