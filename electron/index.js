@@ -2,9 +2,13 @@
 const { app, BrowserWindow,ipcMain } = require("electron");
 const path = require("path");
 const { initDb } = require("./main/db/database");
-const { Product } = require("./main/model/product.model");
-const { ProductsService } = require("./main/products/products.service");
-const productService = new ProductsService();
+const ProductController = require("./main/product/controller/product.controller");
+const CategoryController = require("./main/category/controller/category.controller");
+const SaleProductController = require("./main/saleProduct/controller/saleProduct.controller");
+
+const productController = new ProductController();
+const categoryController = new CategoryController();
+const saleProductController = new SaleProductController();
 let appWin;
 let createWindow;
 createWindow = async () => {
@@ -40,7 +44,7 @@ createWindow = async () => {
     });
 
     initDb();
-    ipcMain.handle('getProductByCodeBar',productService.getProductByCodeBar);
+    ipcMain.handle('getProductByCodeBar',productController.getProductByCodeBar);
     ipcMain.on('saveVentaIndividual', productService.saveVentaIndividual)
     ipcMain.on('generarCorte', async () => {
       

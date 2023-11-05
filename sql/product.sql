@@ -1,9 +1,9 @@
 INSERT INTO
   products (
-    productname,
+    productName,
     barcode,
     price,
-    categoriaId,
+   categoryId,
     createdAt,
     updatedAt
   )

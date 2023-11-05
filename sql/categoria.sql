@@ -1,5 +1,5 @@
 INSERT INTO
-    categoria (categoriaName, createdAt, updatedAt)
+    categories (categoryName, createdAt, updatedAt)
 VALUES
     (
         'Cerveza',
