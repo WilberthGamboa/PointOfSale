@@ -45,16 +45,16 @@ createWindow = async () => {
 
     initDb();
     ipcMain.handle('getProductByCodeBar',productController.getProductByCodeBar);
-    ipcMain.on('saveVentaIndividual', productService.saveVentaIndividual)
+    ipcMain.on('saveVentaIndividual', saleProductController.postSaleProduct)
     ipcMain.on('generarCorte', async () => {
       
      appWin.hide()
        await  productService.generarCorte()
        appWin.show()
     })
-    ipcMain.handle('getCategories',productService.getCategories);
-    ipcMain.handle('saveNewProduct',productService.saveNewProduct);
-    ipcMain.handle('getProductByCodeBarWithCategory',productService.getProductByCodeBarWithCategory);
+    ipcMain.handle('getCategories',categoryController.getCategories);
+    ipcMain.handle('saveNewProduct',productController.postProduct);
+    //ipcMain.handle('getProductByCodeBarWithCategory',productController.);
     /*
    const producto = new  Product({
     productname: 'sadfds',

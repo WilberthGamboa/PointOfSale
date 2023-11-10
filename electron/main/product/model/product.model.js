@@ -1,7 +1,7 @@
 
 const Sequelize = require('sequelize');
 const { sequelize } = require('../../db/database');
-const { CategoryModel } = require('../../category/model/category.model');
+const  CategoryModel  = require('../../category/model/category.model');
 
 
 const ProductModel = sequelize.define('product', {
@@ -22,5 +22,5 @@ const ProductModel = sequelize.define('product', {
     }
   });
 ProductModel.belongsTo(CategoryModel, { foreignKey: 'categoryId', allowNull: false });
-CategoryModel.hasMany(ProductModel);
-module.exports = {ProductModel}
+
+module.exports = ProductModel

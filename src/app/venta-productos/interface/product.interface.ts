@@ -1,10 +1,7 @@
-export interface Product {
-    barcode : string
-    productname: string
-    price: number,
-    category:string
-}
+import { ProductModel } from "src/app/shared/interfaces/product-model.interface"
 
-export interface CantidadProducto extends Product {
-    cantidad:number
+
+
+export interface QuantityProduct extends ProductModel {
+    quantity:number
 }

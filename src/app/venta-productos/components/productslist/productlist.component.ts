@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { CantidadProducto } from '../../interface/product.interface';
+import { QuantityProduct } from '../../interface/product.interface';
 
 
 @Component({
@@ -18,7 +18,7 @@ export class ProductListComponent implements OnInit {
     constructor() { }
     //@Input
     @Input()
-    cantidadProducts:CantidadProducto[] = [];
+    cantidadProducts:QuantityProduct[] = [];
     //@Output
     @Output()
     deleteProductEE = new EventEmitter<number>;

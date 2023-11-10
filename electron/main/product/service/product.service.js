@@ -5,7 +5,7 @@ const { dialog } = require('electron');
 // Conexión db
 const { sequelize } = require("../../db/database");
 // Imports de  modelos
-const { ProductModel } = require("../model/product.model");
+const ProductModel  = require("../model/product.model");
 const { CategoryModel } = require('../../category/model/category.model');
 
 class ProductsService {
@@ -15,10 +15,11 @@ class ProductsService {
         try {
             const product = await ProductModel.findOne({
                 where: {
-                    barcode: barcode
-                }
+                    barcode
+                },
+                raw:true
             })
-
+            console.log(product)
             return product;
         } catch (error) {
             console.log(error)

@@ -15,9 +15,9 @@
         <tbody>
             <tr *ngFor="let product of cantidadProducts;      let i = index;"
           >
-          <td> {{product.cantidad}} </td>
+          <td> {{product.quantity}} </td>
                 <td>{{product.barcode}}</td>
-                <td>{{product.productname}}</td>
+                <td>{{product.productName}}</td>
                 <td>{{product.price}}</td>
             <td (click)="deleteProduct(i)"  class=" p-1">
                 <img src="/assets/delete-trash-svgrepo-com.svg" alt=""  class="mt-0" >

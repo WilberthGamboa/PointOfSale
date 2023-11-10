@@ -5,8 +5,8 @@ class ProductController {
         this.productService = new ProductsService();
     }
 
-    getProductByCodeBar = (e, barcode) => {
-        this.productService.getProductByCodeBar(e,barcode);
+    getProductByCodeBar = async (e, barcode) => {
+      return await this.productService.getProductByCodeBar(e,barcode);
     }
 
     postProduct = (e,data) =>{
